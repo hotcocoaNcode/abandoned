@@ -11,6 +11,22 @@ body {
     letter-spacing: 1px;
 }
 
+@keyframes blinker {
+    from{
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0.25;
+    }
+}
+
+.continue_button {
+    animation: blinker 3s ease-in-out infinite;
+}
+
 .b612-mono-regular {
     font-family: "B612 Mono", monospace;
     font-weight: 400;

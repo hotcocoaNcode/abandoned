@@ -1,0 +1,5 @@
+_continuous
+sourceless
+    JS_VARIABLE text
+error
+    ERR//STREAM_NOT_FOUND!

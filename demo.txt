@@ -1,0 +1,13 @@
+_continuous
+sourceless
+    she gabba on my gool
+    and she gool on my gabba
+_endcontinuous
+error
+    she gabba on your gool and what?
+sourceless
+    she gabba on my gool and it feel like
+_continuous
+error
+    ammounium perchlorate, i know i know
+_endcontinuous
