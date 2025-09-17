@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/res/main.css">
+    <script src="/res/text.js"></script>
+
     <meta charset="UTF-8">
     <title>passions are for people who run nonprofits</title>
-  <link rel="stylesheet" href="/abandoned/res/main.css">
 </head>
 <body>
-  <div class="dialogue_box">
-  <p id="t1" class="b612-mono-regular"></p>
-  <p id="t2" class="b612-mono-bold error_text"></p>
+  <div id="diabox" class="dialogue_box">
+      <!--<p id="t1" class="b612-mono-regular"></p>
+      <p id="t2" class="b612-mono-bold error_text"></p>-->
   </div>
   <script>
     let text = "within itself the meaning lies";
     const rand = Math.random();
     if (rand > 0.3) {
+      text = "\"just one more chance\"\nshe tries, and tries"
+    } else if (rand > 0.6) {
       text = "with hollowed eyes, the puppet cries"
     }
-    if (rand > 0.6) {
-      text = "\"just one more chance\"\nshe tries, and tries"
-    }
 
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    let dialogueArray = [["sourceless", text], ["error", "ERR//STREAM_NOT_FOUND!"]];
 
-    async function asyncText(element, text) {
-      let currentText = "";
-      for (let i = 0; i < text.length; i++) {
-        currentText = currentText + text[i];
-        document.getElementById(element).innerText = currentText;
-        await sleep(40);
-      }
-    }
+    dialogue(dialogueArray);
 
-    asyncText("t1", text).then(async () => {
-      await sleep(500);
-      await asyncText("t2", "ERR//STREAM_NOT_FOUND!");
+    /*
+    sleep(0).then(async () => {
+        await asyncText("t1", text);
+        await sleep(500);
+        await asyncText("t2", "ERR//STREAM_NOT_FOUND!");
     });
+    */
   </script>
 </body>
 </html>
