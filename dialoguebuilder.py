@@ -7,14 +7,19 @@ for line in fileobj.readlines():
         line = line[:len(line)-1]
     ctr=0
     for character in line:
-        if character == " ":
+        if character == " " and ctr < 4:
             ctr += 1
         else:
             break
     line = line[ctr:]
     if (ctr == 0):
         if (line[0] == "_"):
-            finalstring += "[\""+ line[1:] +"\"], "
+            if (line[:5] == "_wait"):
+                finalstring += "[\"wait\"," + line[5:] +"], "
+            elif (line[:9] == "_chartime"):
+                finalstring += "[\"chartime\"," + line[9:] +"], "
+            else:
+                finalstring += "[\""+ line[1:] +"\"], "
         else:
             actor = line
     else:
@@ -22,4 +27,4 @@ for line in fileobj.readlines():
             finalstring += "[\""+ actor +"\", "+ line[12:] +"], "
         else:
             finalstring += "[\""+ actor +"\", \""+ line +"\"], "
-print(finalstring + "]")
+print("\n\n" + finalstring + "]")

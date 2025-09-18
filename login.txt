@@ -1,0 +1,49 @@
+_chartime 0
+_continuous
+sourceless
+    Memory Lab Professional 1.0 © NeuroMesh Corp, 2158
+_wait 2000
+_chartime 10
+    Loading Resources...
+_chartime 60
+    . . . . . . . . . . . . Loaded!
+_chartime 10
+    Securing Link...
+_chartime 60
+    . . . . . . . Verified!
+_chartime 10
+    System loading, please wait...
+_chartime 100
+    . . . . . . . . .
+_wait 2500
+_clear
+_chartime 10
+sourceless
+    PROPERTY OF THE NORTHERN FEDERATION
+    Waiting on IRAD Login...
+_wait 3000
+    Attempting...
+_wait 3000
+    Attempting...
+_wait 3000
+    Attempting...
+_chartime 40
+error
+    ERR//NET//CREDENTIAL_INVALID
+_wait 2500
+_chartime 10
+sourceless
+    Networking failure.
+    Retracing memory stream from root node!
+    (If this is an unexpected behavior, please change settings in ~/mlab/conf.xml)
+_wait 2000
+sourceless
+_endcontinuous
+    . . . . . . . . . . .
+_clear
+_continuous
+    Retrace complete.
+_triggerbox
+_wait 3000
+_endcontinuous
+    Loading stream.

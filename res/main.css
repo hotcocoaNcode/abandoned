@@ -54,6 +54,36 @@ body {
     padding: 20px;
 }
 
+@keyframes diabox_term_in {
+    from {
+        border: 0 solid white;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background-color: #00000000;
+        transform: translate(0%, 0%);
+    }
+    to {
+        border: 2px solid white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: black;
+    }
+}
+
+.dialogue_box_fadein_terminal {
+    animation: diabox_term_in 2s ease-in-out;
+    position: absolute;
+    border: 2px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: black;
+}
+
 .b612-mono-regular-italic {
     font-family: "B612 Mono", monospace;
     font-weight: 400;

@@ -2,12 +2,12 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function asyncText(element, text) {
+async function asyncText(element, text, chartime) {
     let currentText = "";
     for (let i = 0; i < text.length; i++) {
         currentText = currentText + text[i];
         document.getElementById(element).innerText = currentText;
-        await sleep(40);
+        await sleep(chartime);
     }
 }
 
@@ -26,6 +26,7 @@ async function dialogue(arr) {
     let continuous = false;
     let nextButton = "<p class=\"b612-mono-regular\">" +
         "<span class='continue_button'>(click to continue)</span></p>";
+    let chartime = 40;
     for (const phrase of arr) {
         let htmlItem = "";
         let shouldPrint = true;
@@ -44,6 +45,22 @@ async function dialogue(arr) {
                shouldPrint = false;
                continuous = false;
                break;
+            case "clear":
+                shouldPrint = false;
+                box.innerHTML = "";
+                break;
+            case "wait":
+                shouldPrint = false;
+                await sleep(phrase[1]);
+                break;
+            case "chartime":
+                shouldPrint = false;
+                chartime = phrase[1];
+                break;
+            case "triggerbox":
+                box.classList.add("dialogue_box_fadein_terminal");
+                shouldPrint = false;
+                break;
             default:
                 shouldPrint = false;
         }
@@ -58,7 +75,7 @@ async function dialogue(arr) {
                 await click(box);
                 box.innerHTML = temp;
             }
-            await asyncText(String(id), phrase[1]);
+            await asyncText(String(id), phrase[1], chartime);
         }
         id++;
     }
